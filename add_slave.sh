@@ -1,7 +1,7 @@
 #!/bin/bash
 
-TEMPLATE="antigluk/jenkins-slave"
-LABEL="docker-centos6"
+TEMPLATE="antigluk/jenkins-slave:centos5.9"
+LABEL="docker-centos5"
 
 # docker build -t antigluk/jenkins-slave .
 ID=$(docker run -d -p 22 "$TEMPLATE")

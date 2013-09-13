@@ -1,7 +1,7 @@
-FROM    centos:6.4
+FROM    backjlack/centos:5.9
 
 # Enable EPEL
-RUN     rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+RUN     rpm -Uvh http://dl.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm
 
 # SSH
 EXPOSE 22
@@ -31,7 +31,7 @@ RUN echo "jenkins ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 RUN su - jenkins -c "wget -O /var/lib/jenkins/swarm-client-1.9-jar-with-dependencies.jar http://maven.jenkins-ci.org/content/repositories/releases/org/jenkins-ci/plugins/swarm-client/1.9/swarm-client-1.9-jar-with-dependencies.jar"
 
-RUN sed -i "s/^127.0.0.1/127.0.0.1 $(hostname) /" /etc/hosts
+RUN touch /etc/hosts; echo "127.0.0.1	localhost" >> /etc/hosts
 
 # Fix /dev/fd
 RUN ln -s /proc/self/fd /dev/fd
