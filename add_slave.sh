@@ -4,8 +4,8 @@
 # $2 - docker tag
 # $3 - jenkins label
 
-[ -z "$2" ] && TAG="centos5.9" || TAG="$1"
-[ -z "$3" ] && LABEL="centos5" || LABEL="$2"
+[ -z "$2" ] && TAG="centos5.9" || TAG="$2"
+[ -z "$3" ] && LABEL="centos5" || LABEL="$3"
 
 TEMPLATE="antigluk/jenkins-slave:$TAG"
 LABEL="docker-$LABEL"

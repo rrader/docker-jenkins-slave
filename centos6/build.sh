@@ -1,3 +1,5 @@
 #!/bin/bash
 
-bash ../build.sh centos6.4
+cp ../keys/* ./
+cd ../
+bash build.sh centos6 centos6.4
