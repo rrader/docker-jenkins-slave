@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cp ../keys/* ./
+cp -f ../keys/* ./
 cd ../
 bash build.sh centos6 centos6.4
