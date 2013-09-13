@@ -18,10 +18,10 @@ RUN adduser -d /var/lib/jenkins jenkins
 RUN echo 'root:1111' | chpasswd
 RUN echo 'jenkins:1111' | chpasswd
 RUN su - jenkins -c "mkdir /var/lib/jenkins/.ssh"
-ADD id_rsa /var/lib/jenkins/.ssh/
-ADD id_rsa.pub /var/lib/jenkins/.ssh/
-ADD known_hosts /var/lib/jenkins/.ssh/
-ADD authorized_keys /var/lib/jenkins/.ssh/
+ADD keys/id_rsa /var/lib/jenkins/.ssh/
+ADD keys/id_rsa.pub /var/lib/jenkins/.ssh/
+ADD keys/known_hosts /var/lib/jenkins/.ssh/
+ADD keys/authorized_keys /var/lib/jenkins/.ssh/
 RUN chown jenkins:jenkins -R /var/lib/jenkins/.ssh
 RUN chmod 0700 /var/lib/jenkins/.ssh && chmod 0600 /var/lib/jenkins/.ssh/*
 
