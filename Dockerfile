@@ -33,5 +33,8 @@ RUN su - jenkins -c "wget -O /var/lib/jenkins/swarm-client-1.9-jar-with-dependen
 
 RUN sed -i "s/^127.0.0.1/127.0.0.1 $(hostname) /" /etc/hosts
 
+# Fix /dev/fd
+RUN ln -s /proc/self/fd /dev/fd
+
 ENTRYPOINT ["/usr/sbin/sshd"]
 CMD ["-D"]
