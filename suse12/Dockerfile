@@ -7,9 +7,8 @@ RUN zypper addrepo --no-gpgcheck http://download.opensuse.org/repositories/Java:
 RUN zypper addrepo --no-gpgcheck http://download.tizen.org/tools/latest-release/openSUSE_12.1/ tools
 
 RUN zypper refresh
-RUN zypper install -y git openssh
+RUN zypper install -y git openssh sudo wget
 RUN zypper install -y java-1_6_0-openjdk-devel
-RUN zypper install -y sudo
 
 RUN sed 's/UsePAM yes/UsePAM no/' -i /etc/ssh/sshd_config
 RUN sed 's/#PermitRootLogin yes/PermitRootLogin yes/' -i /etc/ssh/sshd_config
