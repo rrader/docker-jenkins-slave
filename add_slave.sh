@@ -11,9 +11,9 @@ TEMPLATE="antigluk/jenkins-slave:$TAG"
 LABEL="docker-$LABEL"
 
 # docker build -t antigluk/jenkins-slave .
-ID=$(docker run -d -p 22 "$TEMPLATE")
+ID=$(docker -H=127.0.0.1:4243 run -d -p 22 "$TEMPLATE")
 
-IP=$(docker inspect $ID | grep IPAddress | sed -r 's/^[^:]*: "([^"]*)".*$/\1/g')
+IP=$(docker -H=127.0.0.1:4243 inspect $ID | grep IPAddress | sed -r 's/^[^:]*: "([^"]*)".*$/\1/g')
 echo "IP: $IP"
 
 DO="ssh -i id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no jenkins@$IP"
