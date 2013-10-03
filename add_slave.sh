@@ -13,6 +13,9 @@ LABEL="docker-$LABEL"
 # docker build -t antigluk/jenkins-slave .
 ID=$(docker -H=127.0.0.1:4243 run -d -p 22 "$TEMPLATE")
 
+#wait sshd to spin up
+sleep 2
+
 IP=$(docker -H=127.0.0.1:4243 inspect $ID | grep IPAddress | sed -r 's/^[^:]*: "([^"]*)".*$/\1/g')
 echo "IP: $IP"
 
