@@ -1,3 +1,4 @@
 #!/bin/bash
 
-bash ../stop_slaves.sh centos5.9
+cd ..
+bash stop_slaves.sh centos5.9

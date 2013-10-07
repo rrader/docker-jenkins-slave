@@ -1,3 +1,4 @@
 #!/bin/bash
 
-bash ../stop_slaves.sh suse12.1
+cd ..
+bash stop_slaves.sh suse12.1
