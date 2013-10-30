@@ -31,7 +31,7 @@ RUN echo "jenkins ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 RUN su - jenkins -c "wget -O /var/lib/jenkins/swarm-client-1.9-jar-with-dependencies.jar http://maven.jenkins-ci.org/content/repositories/releases/org/jenkins-ci/plugins/swarm-client/1.9/swarm-client-1.9-jar-with-dependencies.jar"
 
-RUN sed -i "s/^127.0.0.1/127.0.0.1 $(hostname) /" /etc/hosts
+#RUN sed -i "s/^127.0.0.1/127.0.0.1 $(hostname) /" /etc/hosts
 
 # Fix /dev/fd
 RUN ln -s /proc/self/fd /dev/fd
