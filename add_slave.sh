@@ -24,7 +24,7 @@ echo "IP: $IP"
 sudo chmod 600 keys/id_rsa
 DO="ssh -i keys/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no jenkins@$IP"
 
-$DO 'sudo sed -i "s/^127\.0\.0\.1/127\.0\.0\.1 $(hostname) /" /etc/hosts'
+#$DO 'sudo sed -i "s/^127\.0\.0\.1/127\.0\.0\.1 $(hostname) /" /etc/hosts'
 
 
 # $DO java -jar swarm-client-*.jar -help
