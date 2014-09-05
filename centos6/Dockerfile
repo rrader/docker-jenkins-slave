@@ -8,8 +8,6 @@ EXPOSE 22
 RUN yum -y groupinstall "Development tools"
 RUN yum -y install rsyslog openssh-server screen passwd java-1.6.0-openjdk sudo
 RUN sed 's/UsePAM yes/UsePAM no/' -i /etc/ssh/sshd_config
-RUN sed 's/#PermitRootLogin yes/PermitRootLogin yes/' -i /etc/ssh/sshd_config
-RUN sed 's/#PermitEmptyPasswords no/PermitEmptyPasswords no/' -i /etc/ssh/sshd_config
 
 RUN /etc/init.d/sshd restart
 
