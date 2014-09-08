@@ -13,7 +13,7 @@ TEMPLATE="antigluk/jenkins-slave:$TAG"
 LABEL="docker-$LABEL"
 
 # docker build -t antigluk/jenkins-slave .
-ID=$($docker run -d -p 22 "$TEMPLATE")
+ID=$($docker run -d -p 22 --name="$1" "$TEMPLATE")
 
 #wait sshd to spin up
 sleep 2
