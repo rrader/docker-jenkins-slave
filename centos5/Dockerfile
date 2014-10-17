@@ -1,4 +1,4 @@
-FROM    backjlack/centos:5.9
+FROM    centos:centos5
 
 # Enable EPEL
 RUN     rpm -Uvh http://dl.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm
