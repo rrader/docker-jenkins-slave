@@ -6,7 +6,7 @@ RUN     rpm -Uvh http://dl.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.no
 # SSH
 EXPOSE 22
 RUN yum -y groupinstall "Development tools"
-RUN yum -y install rsyslog openssh-server screen passwd java-1.6.0-openjdk sudo
+RUN yum -y install rsyslog openssh-server screen passwd java-1.6.0-openjdk sudo wget git python26
 RUN sed 's/UsePAM yes/UsePAM no/' -i /etc/ssh/sshd_config
 RUN sed 's/#PermitRootLogin yes/PermitRootLogin yes/' -i /etc/ssh/sshd_config
 RUN sed 's/#PermitEmptyPasswords no/PermitEmptyPasswords no/' -i /etc/ssh/sshd_config
@@ -34,7 +34,7 @@ RUN su - jenkins -c "wget -O /var/lib/jenkins/swarm-client-1.9-jar-with-dependen
 #RUN touch /etc/hosts; echo "127.0.0.1	localhost" >> /etc/hosts
 
 # Fix /dev/fd
-RUN ln -s /proc/self/fd /dev/fd
+#RUN ln -s /proc/self/fd /dev/fd
 
 ENTRYPOINT ["/usr/sbin/sshd"]
 CMD ["-D"]
