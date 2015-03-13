@@ -24,9 +24,6 @@ echo "IP: $IP"
 sudo chmod 600 keys/id_rsa
 DO="ssh -i keys/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no jenkins@$IP"
 
-#$DO 'sudo sed -i "s/^127\.0\.0\.1/127\.0\.0\.1 $(hostname) /" /etc/hosts'
-
-
 # $DO java -jar swarm-client-*.jar -help
 nohup $DO "java -jar swarm-client-*.jar -master http://172.17.42.1:8070 -mode exclusive -labels \"$LABEL\" -executors 1 -fsroot /var/lib/jenkins -name \"$1\" -username sandbox -password hadoop" & 2>/dev/null
 
