@@ -19,7 +19,7 @@ RUN wget -O /opt/maven.tar.gz http://www.eu.apache.org/dist/maven/maven-3/3.2.5/
 
 RUN cd /opt; tar -xvf maven.tar.gz; 
 
-ENV JAVA_HOME /usr/lib/jvm/java-1.7.0-openjdk.x86_64/
+ENV JAVA_HOME /usr/lib/jvm/java-1.7.0-openjdk
 ENV MAVEN_HOME /opt/apache-maven-3.2.5
 RUN ln -s /opt/apache-maven-3.2.5/bin/mvn /usr/bin
 
