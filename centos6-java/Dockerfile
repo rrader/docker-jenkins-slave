@@ -17,11 +17,10 @@ RUN wget -O /root/swarm-client.jar http://maven.jenkins-ci.org/content/repositor
 
 RUN wget -O /opt/maven.tar.gz http://www.eu.apache.org/dist/maven/maven-3/3.2.5/binaries/apache-maven-3.2.5-bin.tar.gz
 
-RUN cd /opt; tar -xvf maven.tar.gz; 
+RUN cd /opt; tar -xvf maven.tar.gz; mkdir -p /root/.m2; ln -s /opt/apache-maven-3.2.5/bin/mvn /usr/bin
 
 ENV JAVA_HOME /usr/lib/jvm/java-1.7.0-openjdk.x86_64
 ENV MAVEN_HOME /opt/apache-maven-3.2.5
-RUN ln -s /opt/apache-maven-3.2.5/bin/mvn /usr/bin
 
 ENTRYPOINT ["java", "-jar", "/root/swarm-client.jar", "-master", "http://172.17.42.1:8070", "-mode", "exclusive", "-executors", "1", "-fsroot", "/root"]
 CMD ["-labels", "docker-centos6-java", "-name", "Chewbakka"]
