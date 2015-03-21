@@ -5,13 +5,6 @@ RUN yum -y install rsyslog wget tar java-1.7.0-openjdk java-1.7.0-openjdk-devel 
 ## RHEL/CentOS 7 64-Bit ##
 RUN wget -O /tmp/epel.rpm http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm; rpm -ivh /tmp/epel.rpm
 
-RUN mkdir /root/.ssh
-ADD resources/id_rsa /root/.ssh/
-ADD resources/id_rsa.pub /root/.ssh/
-ADD resources/known_hosts /root/.ssh/
-ADD resources/authorized_keys /root/.ssh/
-RUN chmod 0700 /root/.ssh && chmod 0600 /root/.ssh/*
-
 RUN wget -O /root/swarm-client.jar http://maven.jenkins-ci.org/content/repositories/releases/org/jenkins-ci/plugins/swarm-client/1.9/swarm-client-1.9-jar-with-dependencies.jar
 
 
