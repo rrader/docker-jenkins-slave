@@ -7,6 +7,8 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision "shell", path: "setup.sh"
 
+  config.vm.synced_folder "data/jenkins", "/var/lib/jenkins/"
+
   config.vm.provider :lxc do |lxc|
     lxc.customize 'aa_profile', 'unconfined'
 

@@ -2,11 +2,13 @@ wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.r
 rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
 yum install -y jenkins java icedtea-web e2fsprogs git lxc tar bridge-utils
 
+mkdir -p /var/lib/jenkins/plugins
 cd /var/lib/jenkins/plugins
 wget http://updates.jenkins-ci.org/latest/swarm.hpi
+chown jenkins:jenkins swarm.hpi
 
 chkconfig jenkins on
-service jenkins start
+systemctl start jenkins
 
 # ======================
 
@@ -27,9 +29,3 @@ echo 'OPTIONS=-H unix:// --exec-driver=lxc' >> /etc/sysconfig/docker
 
 systemctl enable docker
 systemctl start docker
-
-# ======================
-
-cd /root
-git clone https://github.com/rrader/docker-jenkins-slave.git docker-jenkins-slave
-cd docker-jenkins-slave
