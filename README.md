@@ -25,7 +25,6 @@ Requirements
 -------------
  - Vagrant
  - vagrant-lxc plugin: vagrant plugin install vagrant-lxc
- - vagrant-exec plugin: vagrant plugin install vagrant-exec ???
  - vagrant-lxc related configuration on Host. See https://github.com/fgrehm/vagrant-lxc/wiki
  - redir for port forwarding in TODO
 

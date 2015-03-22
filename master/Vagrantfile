@@ -13,10 +13,6 @@ Vagrant.configure(2) do |config|
   config.vm.hostname = "jenkins.vagrant"
 
   config.vm.provider :lxc do |lxc|
-    lxc.customize 'aa_profile', 'unconfined'
-
-#    lxc.customize 'lxc.mount.auto' 'proc:mixed sys:rw'
-
     lxc.customize 'cgroup.devices.allow', 'c 4:* rwm'
     lxc.customize 'cgroup.devices.allow', 'c 5:1 rwm'
     lxc.customize 'cgroup.devices.allow', 'c 10:* rwm'

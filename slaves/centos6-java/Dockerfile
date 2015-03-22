@@ -15,5 +15,5 @@ RUN cd /opt; tar -xvf maven.tar.gz; mkdir -p /root/.m2; ln -s /opt/apache-maven-
 ENV JAVA_HOME /usr/lib/jvm/java-1.7.0-openjdk.x86_64
 ENV MAVEN_HOME /opt/apache-maven-3.2.5
 
-ENTRYPOINT ["java", "-jar", "/root/swarm-client.jar", "-master", "http://172.17.42.1:8070", "-mode", "exclusive", "-executors", "1", "-fsroot", "/root"]
+ENTRYPOINT ["java", "-jar", "/root/swarm-client.jar", "-master", "http://172.17.42.1:8080", "-mode", "exclusive", "-executors", "1", "-fsroot", "/root"]
 CMD ["-labels", "docker-centos6-java", "-name", "Chewbakka"]
