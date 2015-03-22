@@ -19,7 +19,7 @@ djs_up() {
     cd - > /dev/null
     echo -e "\n=================================================="
     djs_ip
-    echo -e "Start using slaves with building appropriate\n e.g. # ./djs.sh build centos7-java"
+    echo -e "Start using slaves with adding one\n e.g. # ./djs.sh add centos7-java Luke"
 }
 
 djs_destroy() {
